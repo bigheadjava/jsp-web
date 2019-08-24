@@ -3,17 +3,32 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-  	<servlet-name>first-servlet</servlet-name>
-  	<servlet-class>com.cheer.FirstServlet</servlet-class>
-  	<!-- 表示Servlet是否会被自动加载和加载优先级，数值大于0表示自动加载并且数值越小表示加载优先级越高 -->
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
-  
-  <servlet-mapping>
-  	<servlet-name>first-servlet</servlet-name>
-  	<url-pattern>/firstServlet</url-pattern>
-  </servlet-mapping>
+	<display-name>Archetype Created Web Application</display-name>
+
+	<filter>
+		<filter-name>PrintSiteFilter</filter-name>
+		<filter-class>com.cheer.PrintSiteFilter</filter-class>
+		<init-param>
+			<param-name>site</param-name>
+			<param-value>Cheer网站</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>PrintSiteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>first-servlet</servlet-name>
+		<servlet-class>com.cheer.FirstServlet</servlet-class>
+		<!-- 表示Servlet是否会被自动加载和加载优先级，数值大于0表示自动加载并且数值越小表示加载优先级越高 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>first-servlet</servlet-name>
+		<url-pattern>/firstServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
